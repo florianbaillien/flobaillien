@@ -17,34 +17,39 @@
         body {
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            background-color: #f4f4f9;
-            color: #333;
-            padding: 20px;
+            background-color: #000;
+            color: #fff;
+            overflow-x: hidden;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-bottom: 20px;
+        header {
             text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #1a1a1a, #000);
+            border-radius: 10px;
+            margin-bottom: 40px;
             animation: fadeIn 2s ease-in-out;
         }
 
-        p {
-            font-size: 1.1rem;
-            color: #555;
+        h1 {
+            font-size: 3rem;
+            font-weight: 600;
+            color: #fff;
             margin-bottom: 20px;
-            text-align: justify;
+            animation: slideIn 1.5s ease-in-out;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #ccc;
+            margin-bottom: 20px;
+            animation: fadeIn 2.5s ease-in-out;
         }
 
         a {
@@ -57,22 +62,102 @@
             color: #2980b9;
         }
 
-        .contact-info {
-            text-align: center;
-            margin-top: 30px;
+        .hero-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 60px;
+            animation: fadeIn 3s ease-in-out;
         }
 
-        .contact-info a {
+        .hero-text {
+            flex: 1;
+            padding-right: 40px;
+        }
+
+        .hero-image {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 20px;
+            transition: transform 0.5s ease;
+        }
+
+        .hero-image:hover img {
+            transform: scale(1.1);
+        }
+
+        .skills-section {
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .skills-section h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            animation: slideIn 1.5s ease-in-out;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .skill-card i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #3498db;
+        }
+
+        .skill-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .skill-card p {
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        .contact-section {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #1a1a1a, #000);
+            border-radius: 10px;
+            margin-bottom: 40px;
+            animation: fadeIn 3.5s ease-in-out;
+        }
+
+        .contact-section a {
             display: inline-block;
             background: #3498db;
             color: #fff;
-            padding: 10px 20px;
+            padding: 15px 30px;
             border-radius: 5px;
-            font-size: 1rem;
+            font-size: 1.2rem;
             transition: background 0.3s ease;
         }
 
-        .contact-info a:hover {
+        .contact-section a:hover {
             background: #2980b9;
         }
 
@@ -84,7 +169,7 @@
         .social-links a {
             margin: 0 10px;
             font-size: 1.5rem;
-            color: #2c3e50;
+            color: #fff;
             transition: color 0.3s ease;
         }
 
@@ -92,37 +177,7 @@
             color: #3498db;
         }
 
-        .skills-section {
-            margin-top: 40px;
-        }
-
-        .skills-section h2 {
-            font-size: 1.8rem;
-            color: #2c3e50;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-
-        .skills-list {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .skill {
-            background: #3498db;
-            color: #fff;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-size: 0.9rem;
-            transition: transform 0.3s ease;
-        }
-
-        .skill:hover {
-            transform: translateY(-5px);
-        }
-
+        /* Animations */
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -132,45 +187,82 @@
             }
         }
 
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
-
-            p {
-                font-size: 1rem;
-            }
-
-            .skills-list {
+            .hero-section {
                 flex-direction: column;
-                align-items: center;
+                text-align: center;
+            }
+
+            .hero-text {
+                padding-right: 0;
+                margin-bottom: 20px;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Flobaillien</h1>
-        <p>My name is Florian Baillien, I am a software engineer.</p>
-        <p>I am passionate about software development, and I am always looking for new challenges. I specialize in building scalable, efficient, and user-friendly applications. With a strong foundation in both front-end and back-end technologies, I strive to deliver high-quality solutions.</p>
-        
-        <div class="skills-section">
-            <h2>Skills</h2>
-            <div class="skills-list">
-                <div class="skill">JavaScript</div>
-                <div class="skill">Python</div>
-                <div class="skill">React</div>
-                <div class="skill">Node.js</div>
-                <div class="skill">Docker</div>
-                <div class="skill">AWS</div>
-                <div class="skill">SQL</div>
-                <div class="skill">Git</div>
-            </div>
-        </div>
+        <header>
+            <h1>Flobaillien</h1>
+            <p>My name is Florent Baillien, I am a software engineer.</p>
+            <p>I am passionate about software development, and I am always looking for new challenges. I specialize in building scalable, efficient, and user-friendly applications.</p>
+        </header>
 
-        <div class="contact-info">
+        <section class="hero-section">
+            <div class="hero-text">
+                <h2>Innovative Solutions</h2>
+                <p>With a strong foundation in both front-end and back-end technologies, I strive to deliver high-quality solutions that push the boundaries of what's possible.</p>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Coding">
+            </div>
+        </section>
+
+        <section class="skills-section">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <i class="fas fa-code"></i>
+                    <h3>JavaScript</h3>
+                    <p>Building dynamic and interactive web applications.</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-server"></i>
+                    <h3>Node.js</h3>
+                    <p>Scalable back-end solutions with Node.js.</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-cloud"></i>
+                    <h3>AWS</h3>
+                    <p>Cloud infrastructure and deployment.</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-database"></i>
+                    <h3>SQL</h3>
+                    <p>Efficient database management and optimization.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <h2>Get in Touch</h2>
             <p>Feel free to contact me at <a href="mailto:flobaillien@gmail.com">flobaillien@gmail.com</a></p>
-        </div>
+        </section>
 
         <div class="social-links">
             <a href="https://github.com/flobaillien" target="_blank"><i class="fab fa-github"></i></a>
